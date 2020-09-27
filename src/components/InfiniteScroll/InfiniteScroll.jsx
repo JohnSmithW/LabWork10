@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import './InfiniteScroll.css';
 
 export default function InfiniteScroll(props) {
@@ -8,3 +9,8 @@ export default function InfiniteScroll(props) {
     </div>
   );
 }
+
+InfiniteScroll.propTypes = {
+  scroll: PropTypes.func.isRequired,
+  children: PropTypes.array.isRequired,
+};
