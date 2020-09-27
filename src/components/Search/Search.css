@@ -1,0 +1,40 @@
+.search {
+  width: 100%;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+
+.search__input {
+  width: 80%;
+  height: 100%;
+  border-top-left-radius: 2vmax;
+  border-bottom: solid 2px rgb(196, 196, 196);
+  outline: none;
+  padding-left: 30px;
+  box-sizing: border-box;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 1.2vmax;
+}
+
+.search__button {
+  width: 20%;
+  height: 100%;
+  background: coral;
+  border-top-right-radius: 2vmax;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1.2vmax;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.search__button:hover {
+  background: rgb(253, 91, 31);
+}

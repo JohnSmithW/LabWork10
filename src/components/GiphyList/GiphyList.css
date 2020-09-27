@@ -1,0 +1,11 @@
+.list {
+  width: 800px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 2vmax;
+  position: relative;
+}
