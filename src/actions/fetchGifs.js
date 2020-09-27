@@ -8,7 +8,7 @@ export default function fetchGifs() {
   fetch(url)
     .then((restponse) => restponse.json())
     .then((gifs) => {
-      for (let i = 0; i < gifs.data.length; i = i + 1) {
+      for (let i = 0; i < gifs.data.length; i += 1) {
         state.gifs.push(gifs.data[i]);
       }
     })
