@@ -4,11 +4,11 @@ import { view } from '@risingstack/react-easy-state';
 import './GiphyList.css';
 import GiphyListItem from '../GiphyListItem/GiphyListItem';
 import InfiniteScroll from '../InfiniteScroll/InfiniteScroll';
-import Search from '../Search/Search';
+
 import fetchGifs from '../../actions/fetchGifs';
 import identifyScrollBottom from '../../actions/identifyScrollBottom';
 
-function GiphyList() {
+function GiphyList({ content }) {
   useEffect(() => {
     fetchGifs();
   }, []);
@@ -19,7 +19,7 @@ function GiphyList() {
 
   return (
     <div className="list">
-      <Search />
+      {content}
       <InfiniteScroll
         scroll={(event) => {
           identifyScrollBottom(event);
