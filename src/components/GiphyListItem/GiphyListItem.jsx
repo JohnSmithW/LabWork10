@@ -2,19 +2,17 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import './GiphyListItem.css';
 
-export default function GiphyListItem(props) {
+export default function GiphyListItem({ url, label, goTo }) {
   return (
-    <React.StrictMode>
-      <div className="list-item">
-        <img src={props.url} alt="" className="gif-container"></img>
-        <div className="info-container">
-          <span className="info-container__label">{props.label}</span>
-          <span onClick={props.goTo} className="info-container__url">
-            {props.url}
-          </span>
-        </div>
+    <div className="list-item">
+      <img src={url} alt="" className="gif-container"></img>
+      <div className="info-container">
+        <span className="info-container__label">{label}</span>
+        <span onClick={goTo} className="info-container__url">
+          {url}
+        </span>
       </div>
-    </React.StrictMode>
+    </div>
   );
 }
 
