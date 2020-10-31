@@ -3,42 +3,32 @@ import state from '../../store';
 import { view } from '@risingstack/react-easy-state';
 import './GiphyList.css';
 import GiphyListItem from '../GiphyListItem/GiphyListItem';
-import InfiniteScroll from '../InfiniteScroll/InfiniteScroll';
 
 import fetchGifs from '../../actions/fetchGifs';
-import identifyScrollBottom from '../../actions/identifyScrollBottom';
 
-function GiphyList({ content }) {
+function GiphyList() {
   useEffect(() => {
-    fetchGifs();
+    fetchGifs(state.giphyApi.q, state.giphyApi.limit, state.giphyApi.offset);
   }, []);
 
   function goToGif(url) {
     window.open(url);
   }
 
-  return (
-    <div className="list">
-      {content}
-      <InfiniteScroll
-        scroll={(event) => {
-          identifyScrollBottom(event);
-        }}>
-        {state.gifs.map((gif) => {
-          return (
-            <GiphyListItem
-              key={gif.id}
-              url={gif.images.downsized.url}
-              label={gif.title}
-              goTo={() => {
-                goToGif(gif.images.downsized.url);
-              }}
-            />
-          );
-        })}
-      </InfiniteScroll>
-    </div>
-  );
+  return state.gifs.map((gif) => {
+    return state.error ? (
+      <span>Something went wrong...</span>
+    ) : (
+      <GiphyListItem
+        key={gif.id}
+        url={gif.images.downsized.url}
+        label={gif.title}
+        goTo={() => {
+          goToGif(gif.images.downsized.url);
+        }}
+      />
+    );
+  });
 }
 
 export default view(GiphyList);

@@ -12,5 +12,5 @@ export default function InfiniteScroll(props) {
 
 InfiniteScroll.propTypes = {
   scroll: PropTypes.func.isRequired,
-  children: PropTypes.array.isRequired,
+  children: PropTypes.object.isRequired,
 };
